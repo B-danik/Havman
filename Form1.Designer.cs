@@ -78,6 +78,7 @@ namespace Havman
             this.encrypt_button.TabIndex = 2;
             this.encrypt_button.Text = "Encrypt";
             this.encrypt_button.UseVisualStyleBackColor = false;
+            this.encrypt_button.Click += new System.EventHandler(this.encrypt_button_Click);
             // 
             // decrypt_button
             // 
