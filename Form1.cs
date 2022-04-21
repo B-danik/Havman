@@ -42,31 +42,31 @@ namespace Havman
         public Form1()
         {
             InitializeComponent();
+
+            // dgv Simbol kod
+            dgv.ColumnCount = 2;
+            dgv.Columns[0].Width = dgv.Width / 2;
+            dgv.Columns[1].Width = dgv.Width / 2;
+            dgv.Columns[0].Name = "Simbol";
+            dgv.Columns[1].Name = "Kod";
+
+            // dgv 
+            dgv_name.ColumnCount = 7;
+            for (int i = 0;i<7;i++)
+            dgv_name.Columns[i].Width = dgv_name.Width / 7;       
+
+            dgv_name.Columns[0].Name = "№";
+            dgv_name.Columns[1].Name = "Символ";
+            dgv_name.Columns[2].Name = "Чистота";
+            dgv_name.Columns[3].Name = "Левый";
+            dgv_name.Columns[4].Name = "Правый";
+            dgv_name.Columns[5].Name = "Предок";
+            dgv_name.Columns[6].Name = "Действие";
+           
+
         }
 
-        public List<Symbol> Get_symbol()
-        {
-            List<Symbol> list_sym = new List<Symbol>();
-            string slovo = Convert.ToString(source_textBox.Text);  
-    
 
-            foreach (char Letter in slovo.Distinct().ToArray())
-            {
-                string str = list_sym.Find(x => x == Letter);
-                list_sym.Add(new Symbol(Letter));
-                
-                //int Count = slovo.Count(chr => chr == Letter);              
-                //if (Count > 1)
-                //{
-                //    Symbol symbol = new Symbol(Letter);
-                //    symbol.incremCount();
-                //   cryptographic_textBox.Text = ($"Слово состоит из различных символов {Letter} в количестве {Count}");
-                //}
-             
-            }
-
-            return list_sym;
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -75,7 +75,6 @@ namespace Havman
 
         private void encrypt_button_Click(object sender, EventArgs e)
         {
-             Get_symbol();
 
         }
     }
