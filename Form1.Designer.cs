@@ -91,17 +91,20 @@ namespace Havman
             this.decrypt_button.TabIndex = 3;
             this.decrypt_button.Text = "Decipher";
             this.decrypt_button.UseVisualStyleBackColor = false;
+            this.decrypt_button.Click += new System.EventHandler(this.decrypt_button_Click);
             // 
             // tree_dgv
             // 
             this.tree_dgv.AllowUserToAddRows = false;
             this.tree_dgv.AllowUserToDeleteRows = false;
             this.tree_dgv.AllowUserToResizeColumns = false;
-            this.tree_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tree_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tree_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tree_dgv.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tree_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tree_dgv.Location = new System.Drawing.Point(12, 528);
+            this.tree_dgv.Location = new System.Drawing.Point(334, 527);
             this.tree_dgv.Margin = new System.Windows.Forms.Padding(5);
             this.tree_dgv.Name = "tree_dgv";
             this.tree_dgv.RowHeadersVisible = false;
@@ -115,12 +118,12 @@ namespace Havman
             this.code_dgv.AllowUserToAddRows = false;
             this.code_dgv.AllowUserToDeleteRows = false;
             this.code_dgv.AllowUserToResizeColumns = false;
-            this.code_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.code_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.code_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.code_dgv.BackgroundColor = System.Drawing.SystemColors.Control;
             this.code_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.code_dgv.Location = new System.Drawing.Point(791, 528);
+            this.code_dgv.Location = new System.Drawing.Point(12, 527);
             this.code_dgv.Margin = new System.Windows.Forms.Padding(5);
             this.code_dgv.Name = "code_dgv";
             this.code_dgv.RowHeadersVisible = false;
@@ -141,6 +144,7 @@ namespace Havman
             this.clear_button.TabIndex = 10;
             this.clear_button.Text = "Clear";
             this.clear_button.UseVisualStyleBackColor = false;
+            this.clear_button.Click += new System.EventHandler(this.clear_button_Click);
             // 
             // code_button
             // 

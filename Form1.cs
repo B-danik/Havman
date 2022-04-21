@@ -77,6 +77,39 @@ namespace Havman
 
 
         }
+        public class Code
+        {
+            public char str { get; set; }
+            public string code { get; set; }
+            public Code(string str,string code)
+            {
+                this.str = str[0];
+                this.code = code;
+            }
+            public static List<Code> getCodeList(List<Node> listNodes)
+            {
+                List<Code> listCodes = new List<Code>();
+                treeRec(listCodes, listNodes, "", listNodes.Count-1);
+                return listCodes;
+            }
+            private static void treeRec(List<Code> listCodes, List<Node> listNodes,string code,int index)
+            {
+                if (listNodes[index].left==0 && listNodes[index].right == 0)
+                {
+                    listCodes.Add(new Code(listNodes[index].str, code));
+                    return;
+                }
+                if(listNodes[index].left != 0)
+                {
+                    treeRec(listCodes, listNodes, new string((code+"0").ToCharArray()), listNodes[index].left - 1);
+                }
+                if (listNodes[index].right != 0)
+                {
+                    treeRec(listCodes, listNodes, new string((code + "1").ToCharArray()), listNodes[index].right - 1);
+                }
+            }
+        }
+        List<Code> listCode;
         public Form1()
         {
             InitializeComponent();
@@ -202,6 +235,8 @@ namespace Havman
             }
             return listNode;
         }
+        
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -210,13 +245,23 @@ namespace Havman
 
         private void encrypt_button_Click(object sender, EventArgs e)
         {
-
+            string sourceText = source_textBox.Text;
+            string cryptographicText = "";
+            foreach (char letter in sourceText)
+            {
+                Predicate<Code> isHasOnList = (Code code) => code.str == letter;
+                int index = listCode.FindIndex(isHasOnList);
+                cryptographicText += listCode[index].code;
+            }
+            cryptographic_textBox.Text = cryptographicText;
         }
 
         private void kod_button_Click(object sender, EventArgs e)
         {
             List<Node> listNode= havmen();
-            foreach(Node node in listNode)
+            tree_dgv.Rows.Clear();
+            code_dgv.Rows.Clear();
+            foreach (Node node in listNode)
             {
                 tree_dgv.Rows.Add();
                 tree_dgv[0, tree_dgv.Rows.Count - 1].Value = node.num;
@@ -227,6 +272,41 @@ namespace Havman
                 tree_dgv[5, tree_dgv.Rows.Count - 1].Value = node.parent;
                 tree_dgv[6, tree_dgv.Rows.Count - 1].Value = node.action;
             }
+
+            listCode = Code.getCodeList(listNode);
+            foreach (Code code in listCode)
+            {
+                code_dgv.Rows.Add();
+                code_dgv[0, code_dgv.Rows.Count - 1].Value = code.str;
+                code_dgv[1, code_dgv.Rows.Count - 1].Value = code.code;
+
+            }
+        }
+
+        private void decrypt_button_Click(object sender, EventArgs e)
+        {
+            string cryptographicText = source_textBox.Text;
+            string sourceText = "";
+            string strWork = "";
+            foreach (char letter in cryptographicText)
+            {
+                strWork += letter;
+                Predicate<Code> isHasOnList = (Code code) => code.code == strWork;
+                int index = listCode.FindIndex(isHasOnList);
+                if (index == -1)
+                    continue;
+                else
+                {
+                    strWork = "";
+                    sourceText += listCode[index].str;
+                }
+            }
+            cryptographic_textBox.Text = sourceText;
+        }
+
+        private void clear_button_Click(object sender, EventArgs e)
+        {
+            cryptographic_textBox.Text = "";
         }
     }
 }
