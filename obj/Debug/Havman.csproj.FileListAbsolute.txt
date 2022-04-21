@@ -8,3 +8,13 @@ C:\Users\Daniyar Baybolov\source\repos\Havman\obj\Debug\Havman.csproj.GenerateRe
 C:\Users\Daniyar Baybolov\source\repos\Havman\obj\Debug\Havman.csproj.CoreCompileInputs.cache
 C:\Users\Daniyar Baybolov\source\repos\Havman\obj\Debug\Havman.exe
 C:\Users\Daniyar Baybolov\source\repos\Havman\obj\Debug\Havman.pdb
+C:\Users\Андрей\Desktop\Univers\AiCD\алгоритм хафмена\Havman\bin\Debug\Havman.exe.config
+C:\Users\Андрей\Desktop\Univers\AiCD\алгоритм хафмена\Havman\bin\Debug\Havman.exe
+C:\Users\Андрей\Desktop\Univers\AiCD\алгоритм хафмена\Havman\bin\Debug\Havman.pdb
+C:\Users\Андрей\Desktop\Univers\AiCD\алгоритм хафмена\Havman\obj\Debug\Havman.csprojAssemblyReference.cache
+C:\Users\Андрей\Desktop\Univers\AiCD\алгоритм хафмена\Havman\obj\Debug\Havman.Form1.resources
+C:\Users\Андрей\Desktop\Univers\AiCD\алгоритм хафмена\Havman\obj\Debug\Havman.Properties.Resources.resources
+C:\Users\Андрей\Desktop\Univers\AiCD\алгоритм хафмена\Havman\obj\Debug\Havman.csproj.GenerateResource.cache
+C:\Users\Андрей\Desktop\Univers\AiCD\алгоритм хафмена\Havman\obj\Debug\Havman.csproj.CoreCompileInputs.cache
+C:\Users\Андрей\Desktop\Univers\AiCD\алгоритм хафмена\Havman\obj\Debug\Havman.exe
+C:\Users\Андрей\Desktop\Univers\AiCD\алгоритм хафмена\Havman\obj\Debug\Havman.pdb
