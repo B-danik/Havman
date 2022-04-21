@@ -80,6 +80,25 @@ namespace Havman
         public Form1()
         {
             InitializeComponent();
+            // dgv Simbol kod
+            code_dgv.ColumnCount = 2;
+            code_dgv.Columns[0].Width = code_dgv.Width / 2;
+            code_dgv.Columns[1].Width = code_dgv.Width / 2;
+            code_dgv.Columns[0].Name = "Simbol";
+            code_dgv.Columns[1].Name = "Kod";
+
+            // dgv 
+            tree_dgv.ColumnCount = 7;
+            for (int i = 0; i < 7; i++)
+                tree_dgv.Columns[i].Width = tree_dgv.Width / 7;
+
+            tree_dgv.Columns[0].Name = "№";
+            tree_dgv.Columns[1].Name = "Символ";
+            tree_dgv.Columns[2].Name = "Чистота";
+            tree_dgv.Columns[3].Name = "Левый";
+            tree_dgv.Columns[4].Name = "Правый";
+            tree_dgv.Columns[5].Name = "Предок";
+            tree_dgv.Columns[6].Name = "Действие";
         }
 
         public List<Symbol> getSymbol()
@@ -196,7 +215,18 @@ namespace Havman
 
         private void kod_button_Click(object sender, EventArgs e)
         {
-            havmen();
+            List<Node> listNode= havmen();
+            foreach(Node node in listNode)
+            {
+                tree_dgv.Rows.Add();
+                tree_dgv[0, tree_dgv.Rows.Count - 1].Value = node.num;
+                tree_dgv[1, tree_dgv.Rows.Count - 1].Value = node.str;
+                tree_dgv[2, tree_dgv.Rows.Count - 1].Value = node.hz;
+                tree_dgv[3, tree_dgv.Rows.Count - 1].Value = node.left;
+                tree_dgv[4, tree_dgv.Rows.Count - 1].Value = node.right;
+                tree_dgv[5, tree_dgv.Rows.Count - 1].Value = node.parent;
+                tree_dgv[6, tree_dgv.Rows.Count - 1].Value = node.action;
+            }
         }
     }
 }
